@@ -1,0 +1,6 @@
+app:
+  endpoint:
+    urlCountry: https://api.ip2country.info/
+    urlCurrency: https://restcountries.eu/rest/v2/
+    urlCurrencyRates: http://data.fixer.io/api/
+    apiKeyCurrency: 347fbc9c85bfedc3d7a0b17f3b674b16

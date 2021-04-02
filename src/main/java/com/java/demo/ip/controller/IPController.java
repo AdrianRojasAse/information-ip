@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.java.demo.ip.dto.Response;
 import com.java.demo.ip.service.IPService;
-
+/**
+ * 
+ * @author AdrianRojas
+ *
+ *implemantación servicio consulta información IP
+ */
 @RestController
 @RequestMapping("/api/ip")
 public class IPController {
@@ -18,6 +23,6 @@ public class IPController {
 
 	@GetMapping(value = "/country/{ip}")
 	public Response getCountryInfo(@PathVariable String ip)  {
-		return null;
+		return ipService.getCountryInfo(ip);
 	}
 }

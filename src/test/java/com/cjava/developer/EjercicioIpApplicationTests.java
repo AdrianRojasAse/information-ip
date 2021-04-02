@@ -21,5 +21,37 @@ import com.java.demo.ip.utils.Utils;
 @SpringBootTest(classes = EjercicioIpApplication.class)
 class EjercicioIpApplicationTests {
 
+	@Autowired
+	private IPService ipService;
+	
+	@Autowired
+	private IPController ipController;
+
+	@Test
+	public void testIpBanned() {
+		assertTrue(ipService.isBanned(Constant.IP_BANNED));
+	}
+
+	@Test
+	public void testIpTrue() {
+		assertTrue(Utils.validateFormatIp(Constant.IP_VALID));
+	}
+
+	@Test
+	public void testIpFalse() {
+		assertFalse(Utils.validateFormatIp(Constant.IP_NO_VALID));
+	}
+	
+	@Test
+	public void testGetCountryInfoValid() {
+		Response response = ipController.getCountryInfo(Constant.IP_VALID);
+		assertThat(response.getBody()).isNotNull();
+	}
+	
+	@Test
+	public void testGetCountryInfoInValid() {
+		Response response = ipController.getCountryInfo(Constant.IP_NO_VALID);
+		assertThat(response.getBody()).isNull();
+	}
 
 }
