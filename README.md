@@ -7,6 +7,7 @@ La presente aplicación provee información sobre una dirección IP y cuenta con
 - Java 11 
 - Maven 3.6.3
 - Docker 20.10
+- H2 BD (Se inicia la instacia automaticamente al correr el aplicativo)
 
 ### Pasos para instalar:
 1) Clonar el repo en local: `git clone https://github.com/AdrianRojasAse/information-ip.git` y ubicarse en ruta principal del proyecto.
@@ -20,7 +21,7 @@ La presente aplicación provee información sobre una dirección IP y cuenta con
 
   `java -jar ejercicio_IP-0.0.1-java.jar`
 
-* Para la ejecución de la aplicación en contenedor docker se debera realizar los siguientes comandos:
+2) Para la ejecución de la aplicación en contenedor docker se debera realizar los siguientes comandos:
 
 	- generación del ejecutable
   `mvn clean install`
@@ -35,10 +36,10 @@ La presente aplicación provee información sobre una dirección IP y cuenta con
 
 ### Consumo API:
 > Método y endpoint de la api para la consulta de información ip
-- `GET http://localhost:8080/api/ip/country/{ip}
+- `GET http://localhost:8080/api/ip/country/{ip}`
 
 Ejemplo:
-- `GET` http://localhost:8080/api/ip/country/198.10.1.5
+- `GET http://localhost:8080/api/ip/country/198.10.1.5`
 
 ## Pruebas
 
@@ -77,3 +78,6 @@ Ejemplo:
 
 ### Nota
 - Realizar el registro en http://data.fixer.io/api/ para obtener la key para el uso  del servicio de consulta de información de las monedas.
+- La base de datos de inicializa al correr el aplicativo, se crea la tabla para el blacklist y persistencia de los datos. URL para ingresar a la consola.
+			http://localhost:8082/h2-console
+
